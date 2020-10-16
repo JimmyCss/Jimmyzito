@@ -15,7 +15,7 @@ const commandFiles = fs
   .readdirSync(path.join(__dirname, "/commands"))
   .filter((filename) => filename.endsWith(".js"));
 
-for(var filename of commandFiles) {
+for (var filename of commandFiles) {
   const command = require(`./commands/${filename}`);
   bot.commands.set(command.name, command);
 }
@@ -29,18 +29,15 @@ bot.on("ready", () => {
 });
 
 bot.on("message", (msg) => {
-  if(!msg.content.startsWith(process.env.PREFIX) || msg.author.bot) return;
-  console.log(msg.content)
+  if (!msg.content.startsWith(process.env.PREFIX) || msg.author.bot) return;
 
   const args = msg.content.slice(process.env.PREFIX.length).split(" ");
   const command = args.shift();
-  console.log(process.env.PREFIX.length)
   
   try {
     bot.commands.get(command).execute(bot, msg, args);
-  } catch(e) { 
-      return msg.reply("Ops! Deu ruim, não conheço o comando.");
+  } catch (error) {
+    console.log(e.message);
+    return msg.reply("Ops! Deu ruim, não conheço o comando.")
   }
-  
-  bot.commands.get(command).execute(bot, msg, args);
 });

@@ -1,9 +1,9 @@
-const execute = (bot,msg,args) => {
-  return msg.reply("hello");
+const execute = (bot, msg, args) => {
+  return msg.reply("Hello");
 };
 
 module.exports = {
-  nome: "Ajuda",
-  ajude: "Mostre os comandos do bot",
+  name: "hello",
+  help: "Mostre os comandos do bot",
   execute,
 };
