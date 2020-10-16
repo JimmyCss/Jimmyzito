@@ -36,7 +36,7 @@ bot.on("message", (msg) => {
   
   try {
     bot.commands.get(command).execute(bot, msg, args);
-  } catch (error) {
+  } catch (e) {
     console.log(e.message);
     return msg.reply("Ops! Deu ruim, não conheço o comando.")
   }
