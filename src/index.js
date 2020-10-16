@@ -29,6 +29,18 @@ bot.on("ready", () => {
 });
 
 bot.on("message", (msg) => {
-  if(!msg.content.startsWith(process.env.PREFIX)) return;
-  return msg.channel.send("hello");
+  if(!msg.content.startsWith(process.env.PREFIX) || msg.author.bot) return;
+  console.log(msg.content)
+
+  const args = msg.content.slice(process.env.PREFIX.length).split(" ");
+  const command = args.shift();
+  console.log(process.env.PREFIX.length)
+  
+  try {
+    bot.commands.get(command).execute(bot, msg, args);
+  } catch(e) { 
+      return msg.reply("Ops! Deu ruim, não conheço o comando.");
+  }
+  
+  bot.commands.get(command).execute(bot, msg, args);
 });
