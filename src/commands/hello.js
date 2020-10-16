@@ -1,10 +1,10 @@
 const execute = (bot, msg, args) => {
   console.log(args)
-  return msg.reply("Hello");
+  return msg.reply("olá, vou te ajudar: +ajuda");
 };
 
 module.exports = {
   name: "hello",
-  help: "Mensagem de Ola!",
+  help: "posso ajudar?",
   execute,
 };

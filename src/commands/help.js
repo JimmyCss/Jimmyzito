@@ -1,5 +1,5 @@
 const execute = (bot, msg, args) => {
-  let str = "===== AJUDA =====\n"
+  let str = "**===== Comandos =====**\n\n"
   bot.commands.forEach(command => {
     if (command.help) {
       str += `**comando**: ${process.env.PREFIX}${command.name}\n`
@@ -13,6 +13,6 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   name: 'ajuda',
-  help: 'Lista todos os comandos',
+  help: 'Lista de comandos',
   execute
 }
