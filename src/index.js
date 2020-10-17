@@ -8,8 +8,8 @@ const { dirname } = require("path");
 dotenv.config();
 
 const bot = new Discord.Client(); //Criação de um novo Client
-
 bot.commands = new Discord.Collection();
+bot.queues = new Map();
 
 const commandFiles = fs
   .readdirSync(path.join(__dirname, "/commands"))
