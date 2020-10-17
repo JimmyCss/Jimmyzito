@@ -30,7 +30,7 @@ const playSong = async (bot, msg, song) => {
 
   if (!msg.member.voice.channel) {
     return msg.reply(
-      "Você precisa estar em um canal de voz para reproduzir a música"
+      "Você precisa estar em um canal de voz para reproduzir a música."
     );
   }
 
