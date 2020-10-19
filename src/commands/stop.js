@@ -1,10 +1,10 @@
 const execute = (bot, msg, args) => {
-  const queue = bot.queues.get( msg. guild.id);
-  if(!queue) {
-    return msg.reply("Não existe nenhuma música sendo reproduziida.");
+  const queue = bot.queues.get(msg.guild.id);
+  if (!queue) {
+    return msg.reply("Não existe nenhuma música sendo reproduzida.");
   }
   queue.songs = [];
-  bot.queues.set(msg.guild.id,queue);
+  bot.queues.set(msg.guild.id, queue);
   queue.dispatcher.end();
 };
 
