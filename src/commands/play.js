@@ -12,7 +12,7 @@ const execute = async (bot, msg, args) => {
         playSong(bot, msg, song);
         console.log(song);
       } else {
-        return msg.reply("Música não encontrada");
+        return msg.reply("Música não encontrada.");
       }
     });
   } catch (error) {
@@ -21,10 +21,11 @@ const execute = async (bot, msg, args) => {
 };
 
 const playSong = async (bot, msg, song) => {
+  let queue = bot.queues.get(msg.member.guild.id);
   if (!song) {
-    if (queue) {
+        if (queue) {
       queue.connection.disconnect();
-      bot.queues.delete(msg.member.guild.id);
+      return bot.queues.delete(msg.member.guild.id);
     }
   }
 
@@ -34,7 +35,6 @@ const playSong = async (bot, msg, song) => {
     );
   }
 
-  let queue = bot.queues.get(msg.member.guild.id);
   if (!queue) {
     const conn = await msg.member.voice.channel.join();
     queue = {
