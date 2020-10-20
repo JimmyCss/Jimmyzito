@@ -4,7 +4,7 @@ const execute = (bot, msg, args) => {
 };
 
 module.exports = {
-  name: "hello",
+  name: "bot",
   help: "posso ajudar?",
   execute,
 };
