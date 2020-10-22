@@ -27,7 +27,7 @@ const execute = (bot, msg, args) => {
       },
     ])
     .setTimestamp()
-    .setFooter("Cuidado com os direitos autorais.",
+    .setFooter("Live todos de Seg a Sex, às 17h e Sab às 16h.",
     `https://cdn.discordapp.com/icons/${msg.guild.id}/${msg.guild.icon}.png`
     );
 
